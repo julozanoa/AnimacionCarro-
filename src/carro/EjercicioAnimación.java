@@ -7,7 +7,11 @@ package carro;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.canvas.*;
+import javafx.scene.control.Button;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 /**
@@ -18,6 +22,7 @@ public class EjercicioAnimación extends Application{
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        VBox layout = new VBox();
         Pane panel = new Pane();
         Canvas tablero = new Canvas(1024,512);
         panel.getChildren().add(tablero);
@@ -28,6 +33,17 @@ public class EjercicioAnimación extends Application{
         primaryStage.setScene(escena);
         primaryStage.setTitle("EjercicoCarro");
         primaryStage.show();
+        HBox teclas = new HBox();
+        Button button1 = new Button("Izquierda");
+        Button button2 = new Button("Derecha");
+        teclas.getChildren().add(button1);
+        teclas.getChildren().add(button2);
+        layout.getChildren().add(panel);
+        layout.getChildren().add(teclas);
+        Scene scene = new Scene(layout, 1024, 550);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+        
     }
 
     public static void main(String[] args) {
